@@ -1,11 +1,13 @@
 import React from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 const TagContainer = ({tags}) => {
     return (
-        <div>
+        <Container>
             <h2>Tags</h2>
-            {tags.map(tag => <p>{tag}</p>)}
-        </div>
+            {tags.map((tag, index) => <Row key={index}>{tag}</Row>)}
+        </Container>
     )
 }
 
