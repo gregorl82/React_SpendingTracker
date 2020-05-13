@@ -1,13 +1,13 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
 const TagItem = ({ tag }) => {
     return (
-        <Fragment>
-            <Col sm={8}><span>{tag}</span></Col>
-            <Col><Button variant="outline-warning">Edit</Button></Col>
-            <Col><Button variant="outline-danger">Delete</Button></Col>
+        <Fragment mt={5}>
+            <Col md={8}><span>{tag}</span></Col>
+            <Col md={2}><Button variant="outline-warning">Edit</Button></Col>
+            <Col md={1}><Button variant="outline-danger">Delete</Button></Col>
         </Fragment>
     )
 }
