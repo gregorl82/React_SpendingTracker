@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
-const parser = require('body-parser');
+const bodyParser = require('body-parser');
 const cors = require('cors');
-const pool = require('./db/db');
+const pool = require('./db/db.js');
 
-app.use(parser.json());
-app.use(cors);
+app.use(bodyParser.json());
+app.use(cors());
 
 app.get("/tags", async (req, res) => {
     try {
@@ -40,6 +40,27 @@ app.post("/tags", async (req, res) => {
     }
 })
 
-app.listen(5000, function () {
-    console.log(`Listening on port ${ this.address().port }`)
+app.put("/tags/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { tag_name } = req.body;
+        const updateTag = await pool.query("UPDATE tags SET tag_name = $1 WHERE id = $2", [tag_name, id])
+        res.status(200).json("Tag was updated!");
+    } catch (err) {
+        console.error(err.message);
+    }
+})
+
+app.delete("/tags/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deleteTag = await pool.query("DELETE FROM tags WHERE id = $1", [id]);
+        res.status(200).json("Tag was deleted!");
+    } catch (err) {
+        console.error(err.message);
+    }
+})
+
+app.listen(5000,  () => {
+    console.log("Listening on port 5000")
 })
