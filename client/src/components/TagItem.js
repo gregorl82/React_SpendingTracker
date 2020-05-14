@@ -5,9 +5,9 @@ import Button from 'react-bootstrap/Button';
 const TagItem = ({ tag }) => {
     return (
         <Fragment>
-            <Col md={4}><span>{tag.tag_name}</span></Col>
-            <Col md={1}><Button variant="outline-warning">Edit</Button></Col>
-            <Col md={1}><Button variant="outline-danger">Delete</Button></Col>
+            <Col lg={8}>{tag.tag_name}</Col>
+            <Col><Button variant="outline-warning">Edit</Button></Col>
+            <Col><Button variant="outline-danger">Delete</Button></Col>
         </Fragment>
     )
 }
