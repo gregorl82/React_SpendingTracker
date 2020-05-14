@@ -6,15 +6,13 @@ import NavigationBar from './components/NavigationBar';
 
 function App() {
 
-  const tags = ["Groceries", "Leisure", "Entertainment", "Health & Fitness"];
-
   return (
     <div className="App">
       <Jumbotron>
         <h1>Spending Tracker</h1>
       </Jumbotron>
       <NavigationBar />
-      <TagContainer tags={tags} />
+      <TagContainer/>
     </div>
   );
 }
