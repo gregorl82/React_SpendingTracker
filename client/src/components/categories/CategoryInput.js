@@ -5,12 +5,12 @@ import Button from 'react-bootstrap/Button';
 
 const CategoryInput = () => {
 
-    const [tag_name, setTagName] = useState("");
+    const [category_name, setCategoryName] = useState("");
 
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            const body = { tag_name };
+            const body = { category_name };
             const response = await fetch("http://localhost:5000/api/categories", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -26,14 +26,14 @@ const CategoryInput = () => {
     return (
         <Container>
             <Form onSubmit={handleSubmit}>
-                <Form.Group controlId="formTagName">
-                    <Form.Label>Enter a new tag</Form.Label>
+                <Form.Group controlId="formCategoryName">
+                    <Form.Label>Enter a new category</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="Tag name"
-                        value={tag_name}
+                        placeholder="Category name"
+                        value={category_name}
                         onChange={e => {
-                            setTagName(e.target.value);
+                            setCategoryName(e.target.value);
                         }
                         } />
                 </Form.Group>

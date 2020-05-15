@@ -2,11 +2,11 @@ import React, {Fragment} from 'react';
 import Row from 'react-bootstrap/Row';
 import CategoryItem from './CategoryItem';
 
-const CategoryList = ({ tags }) => {
+const CategoryList = ({ categories }) => {
     return (
         <Fragment>
-           {tags.map((tag) => {
-               return <Row className="m-5" key={tag.id}><CategoryItem tag={tag} /></Row>
+           {categories.map((category) => {
+               return <Row className="m-5" key={category.id}><CategoryItem category={category} /></Row>
            })}
         </Fragment>
     )

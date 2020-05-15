@@ -3,19 +3,19 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 
-const CategoryEdit = ({ tag }) => {
+const CategoryEdit = ({ category }) => {
 
     const [show, setShow] = useState(false);
-    const [tag_name, setTagName] = useState(tag.tag_name);
+    const [category_name, setCategoryName] = useState(category.category_name);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const updateTag = async(e) => {
+    const updateCategory = async(e) => {
         e.preventDefault();
         try {
-            const body = { tag_name }
-            const response = fetch(`http://localhost:5000/api/categories/${tag.id}`, {
+            const body = { category_name }
+            const response = fetch(`http://localhost:5000/api/categories/${category.id}`, {
                 method: "PUT",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(body)
@@ -35,16 +35,16 @@ const CategoryEdit = ({ tag }) => {
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Edit tag</Modal.Title>
+                    <Modal.Title>Edit category</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form.Group controlId="formTagName">
                         <Form.Control
                             type="text"
-                            placeholder="Tag name"
-                            value={tag_name}
+                            placeholder="Category name"
+                            value={category_name}
                             onChange={e => {
-                                setTagName(e.target.value);
+                                setCategoryName(e.target.value);
                             }
                             } />
                     </Form.Group>
@@ -54,7 +54,7 @@ const CategoryEdit = ({ tag }) => {
                         Close
                     </Button>
                     <Button variant="primary" onClick={(e) => {
-                        updateTag(e)
+                        updateCategory(e)
                     }
                     }>
                         Save Changes

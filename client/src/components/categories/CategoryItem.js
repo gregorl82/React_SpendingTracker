@@ -3,7 +3,7 @@ import CategoryEdit from './CategoryEdit';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
-const CategoryItem = ({ tag }) => {
+const CategoryItem = ({ category }) => {
 
     const handleDelete = async (id) => {
         try {
@@ -20,11 +20,11 @@ const CategoryItem = ({ tag }) => {
 
     return (
         <Fragment>
-            <Col lg={8}>{tag.tag_name}</Col>
-            <Col><CategoryEdit tag={tag}/></Col>
+            <Col lg={8}>{category.category_name}</Col>
+            <Col><CategoryEdit category={category}/></Col>
             <Col><Button
                 variant="danger"
-                onClick={() => handleDelete(tag.id)}>Delete</Button></Col>
+                onClick={() => handleDelete(category.id)}>Delete</Button></Col>
         </Fragment>
     )
 }

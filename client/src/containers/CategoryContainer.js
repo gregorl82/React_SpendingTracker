@@ -5,27 +5,27 @@ import CategoryList from '../components/categories/CategoryList';
 
 const CategoryContainer = () => {
 
-    const [tags, setTags] = useState([]);
+    const [categories, setCategories] = useState([]);
 
-    const getTags = async () => {
+    const getCategories = async () => {
         try {
             const response = await fetch("http://localhost:5000/api/categories");
             const json = await response.json();
-            setTags(json);
+            setCategories(json);
         } catch (err) {
             console.error(err.message);
         }
     }
 
     useEffect(() => {
-        getTags();
+        getCategories();
     }, [])
 
     return (
         <Container>
             <h2 className="m-5">Spending Categories</h2>
             <CategoryInput />
-            <CategoryList tags={tags} />
+            <CategoryList categories={categories} />
         </Container>
     )
 }
