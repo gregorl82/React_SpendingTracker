@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import TagItem from '../components/TagItem';
 import TagInput from '../components/TagInput';
 import TagList from '../components/TagList';
 
@@ -25,7 +23,7 @@ const TagContainer = () => {
 
     return (
         <Container>
-            <h3>Tags</h3>
+            <h2 className="m-5">Tags</h2>
             <TagInput />
             <TagList tags={tags} />
         </Container>

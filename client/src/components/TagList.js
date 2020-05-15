@@ -6,7 +6,7 @@ const TagList = ({ tags }) => {
     return (
         <Fragment>
            {tags.map((tag) => {
-               return <Row className="mt-5"><TagItem key={tag.id} tag={tag} /></Row>
+               return <Row className="m-5" key={tag.id}><TagItem tag={tag} /></Row>
            })}
         </Fragment>
     )
