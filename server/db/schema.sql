@@ -1,11 +1,11 @@
 DROP TABLE IF EXISTS transactions;
 DROP TABLE IF EXISTS merchants;
-DROP TABLE IF EXISTS tags;
+DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS budgets;
 
-CREATE TABLE tags (
+CREATE TABLE categories (
     id SERIAL PRIMARY KEY,
-    tag_name VARCHAR (255) NOT NULL
+    category_name VARCHAR (255) NOT NULL
 );
 
 CREATE TABLE merchants (
@@ -23,7 +23,7 @@ CREATE TABLE budgets (
 CREATE TABLE transactions (
     id SERIAL PRIMARY KEY,
     merchant_id INT REFERENCES merchants(id) ON DELETE CASCADE,
-    tag_id INT REFERENCES tags(id) ON DELETE CASCADE,
+    category_id INT REFERENCES categories(id) ON DELETE CASCADE,
     budget_id INT REFERENCES budgets(id) ON DELETE CASCADE,
     amount DECIMAL(15, 2),
     transaction_time TIMESTAMP
