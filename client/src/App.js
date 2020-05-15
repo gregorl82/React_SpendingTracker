@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Jumbotron from 'react-bootstrap/Jumbotron';
-import TagContainer from './containers/TagContainer.js';
+import CategoryContainer from './containers/CategoryContainer';
 import NavigationBar from './components/NavigationBar';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
         <h1>Spending Tracker</h1>
       </Jumbotron>
       <NavigationBar />
-      <TagContainer/>
+      <CategoryContainer />
     </div>
   );
 }
