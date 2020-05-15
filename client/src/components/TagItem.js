@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import TagEdit from './TagEdit';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
@@ -20,7 +21,7 @@ const TagItem = ({ tag }) => {
     return (
         <Fragment>
             <Col lg={8}>{tag.tag_name}</Col>
-            <Col><Button variant="warning">Edit</Button></Col>
+            <Col><TagEdit tag={tag}/></Col>
             <Col><Button
                 variant="danger"
                 onClick={() => handleDelete(tag.id)}>Delete</Button></Col>
