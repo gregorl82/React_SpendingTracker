@@ -2,18 +2,25 @@ import React from 'react';
 import './App.css';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import CategoryContainer from './containers/CategoryContainer';
-import NavigationBar from './components/NavigationBar';
+import MerchantContainer from './containers/MerchantContainer';
+import NavigationBar from './containers/NavigationBar';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
 
   return (
-    <div className="App">
-      <Jumbotron>
-        <h1>Spending Tracker</h1>
-      </Jumbotron>
-      <NavigationBar />
-      <CategoryContainer />
-    </div>
+    <Router>
+      <div className="App">
+        <Jumbotron>
+          <h2>Spending Tracker</h2>
+        </Jumbotron>
+        <NavigationBar />
+        <Switch>
+          <Route path="/categories" exact component={CategoryContainer} />
+          <Route path="/" component={MerchantContainer} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
