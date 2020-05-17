@@ -3,6 +3,7 @@ import './App.css';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import CategoryContainer from './containers/CategoryContainer';
 import MerchantContainer from './containers/MerchantContainer';
+import BudgetContainer from './containers/BudgetContainer';
 import NavigationBar from './containers/NavigationBar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -16,8 +17,9 @@ function App() {
         </Jumbotron>
         <NavigationBar />
         <Switch>
+          <Route path="/" exact component={MerchantContainer} />
           <Route path="/categories" exact component={CategoryContainer} />
-          <Route path="/" component={MerchantContainer} />
+          <Route path="/budgets" exact component={BudgetContainer} />
         </Switch>
       </div>
     </Router>
