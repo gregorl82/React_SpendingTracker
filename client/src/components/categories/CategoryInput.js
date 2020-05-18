@@ -31,6 +31,7 @@ const CategoryInput = () => {
                     <Form.Control
                         type="text"
                         placeholder="Category name"
+                        required
                         value={category_name}
                         onChange={e => {
                             setCategoryName(e.target.value);

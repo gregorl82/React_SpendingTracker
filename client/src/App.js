@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Jumbotron>
+        <Jumbotron fluid>
           <h2>Spending Tracker</h2>
         </Jumbotron>
         <NavigationBar />

@@ -31,6 +31,7 @@ const MerchantInput = () => {
                     <Form.Control
                         type="text"
                         placeholder="Merchant name"
+                        required
                         value={merchant_name}
                         onChange={e => {
                             setMerchantName(e.target.value);
