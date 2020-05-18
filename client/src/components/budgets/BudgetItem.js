@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import Button from 'react-bootstrap/Button';
+import BudgetEdit from './BudgetEdit';
 
 const BudgetItem = ({ budget }) => {
     return (
@@ -10,7 +11,7 @@ const BudgetItem = ({ budget }) => {
                 <td>£{budget.warning_limit}</td>
                 <td>£0.00</td>
                 <td>£0.00</td>
-                <td><Button variant="warning">Edit</Button></td>
+                <td><BudgetEdit budget={budget} /></td>
                 <td><Button variant="danger">Delete</Button></td>
             </tr>
         </Fragment>
