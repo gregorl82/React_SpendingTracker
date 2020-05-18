@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import BudgetList from '../components/budgets/BudgetList';
+import BudgetInput from '../components/budgets/BudgetInput';
 import Container from 'react-bootstrap/Container';
 
 const BudgetContainer = () => {
@@ -23,6 +24,7 @@ const BudgetContainer = () => {
     return (
         <Container>
             <h2 className="m-5">Budgets</h2>
+            <BudgetInput />
             <BudgetList budgets={budgets} />
         </Container>
     )
