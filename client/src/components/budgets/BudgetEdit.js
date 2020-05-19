@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 const BudgetEdit = ({ budget }) => {
 
@@ -13,13 +14,13 @@ const BudgetEdit = ({ budget }) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const updateBudget = async(e) => {
+    const updateBudget = async (e) => {
         e.preventDefault();
         try {
-            const body = {budget_name, budget_amount, warning_limit};
+            const body = { budget_name, budget_amount, warning_limit };
             const response = await fetch(`http://localhost:5000/api/budgets/${budget.id}`, {
                 method: "PUT",
-                headers: {"Content-Type": "application/json"},
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(body)
             });
             console.log(response);
@@ -51,30 +52,38 @@ const BudgetEdit = ({ budget }) => {
                                 }} />
                         </Form.Group>
                         <Form.Group>
-                            <Form.Label>Budget Amount (in £)</Form.Label>
-                            <Form.Control
-                                type="number"
-                                step="0.01"
-                                min="0.00"
-                                placeholder="0.00"
-                                required
-                                value={budget_amount}
-                                onChange={e => {
-                                    updateBudgetAmount(e.target.valueAsNumber)
-                                }} />
+                            <Form.Label>Budget Amount</Form.Label>
+                            <InputGroup>
+                                <InputGroup.Prepend>
+                                    <InputGroup.Text>£</InputGroup.Text>
+                                </InputGroup.Prepend>
+                                <Form.Control
+                                    type="number"
+                                    step="0.01"
+                                    min="0.00"
+                                    required
+                                    value={budget_amount}
+                                    onChange={e => {
+                                        updateBudgetAmount(e.target.valueAsNumber)
+                                    }} />
+                            </InputGroup>
                         </Form.Group>
                         <Form.Group>
-                            <Form.Label>Warning Limit (in £)</Form.Label>
-                            <Form.Control
-                                type="number"
-                                step="0.01"
-                                min="0.00"
-                                placeholder="0.00"
-                                required
-                                value={warning_limit}
-                                onChange={e => {
-                                    updateWarningLimit(e.target.valueAsNumber)
-                                }} />
+                            <Form.Label>Warning Limit</Form.Label>
+                            <InputGroup>
+                                <InputGroup.Prepend>
+                                    <InputGroup.Text>£</InputGroup.Text>
+                                </InputGroup.Prepend>
+                                <Form.Control
+                                    type="number"
+                                    step="0.01"
+                                    min="0.00"
+                                    required
+                                    value={warning_limit}
+                                    onChange={e => {
+                                        updateWarningLimit(e.target.valueAsNumber)
+                                    }} />
+                            </InputGroup>
                         </Form.Group>
                     </Form>
                 </Modal.Body>

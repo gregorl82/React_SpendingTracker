@@ -2,13 +2,14 @@ import React, { Fragment, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 const BudgetInput = () => {
 
     const [show, setShow] = useState(false);
     const [budget_name, setBudgetName] = useState("");
-    const [warning_limit, setWarningLimit] = useState(0);
-    const [budget_amount, setBudgetAmount] = useState(0);
+    const [warning_limit, setWarningLimit] = useState(0.00);
+    const [budget_amount, setBudgetAmount] = useState(0.00);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -53,30 +54,41 @@ const BudgetInput = () => {
                                 }} />
                         </Form.Group>
                         <Form.Group>
-                            <Form.Label>Budget Amount (in £)</Form.Label>
-                            <Form.Control
-                                type="number"
-                                step="0.01"
-                                min="0.00"
-                                placeholder="0.00"
-                                required
-                                value={budget_amount}
-                                onChange={e => {
-                                    setBudgetAmount(e.target.valueAsNumber)
-                                }} />
+                            <Form.Label>Budget Amount</Form.Label>
+                            <InputGroup>
+                                <InputGroup.Prepend>
+                                    <InputGroup.Text>£</InputGroup.Text>
+                                </InputGroup.Prepend>
+                                <Form.Control
+                                    type="number"
+                                    step="0.01"
+                                    min="0.00"
+                                    placeholder="0.00"
+                                    required
+                                    value={budget_amount}
+                                    onChange={e => {
+                                        setBudgetAmount(e.target.valueAsNumber)
+                                    }} />
+                            </InputGroup>
                         </Form.Group>
                         <Form.Group>
-                            <Form.Label>Warning Limit (in £)</Form.Label>
-                            <Form.Control
-                                type="number"
-                                step="0.01"
-                                min="0.00"
-                                placeholder="0.00"
-                                required
-                                value={warning_limit}
-                                onChange={e => {
-                                    setWarningLimit(e.target.valueAsNumber)
-                                }} />
+                            <Form.Label>Warning Limit</Form.Label>
+                            <InputGroup>
+                                <InputGroup.Prepend>
+                                    <InputGroup.Text>£</InputGroup.Text>
+                                </InputGroup.Prepend>
+                                <Form.Control
+                                    type="number"
+                                    step="0.01"
+                                    min="0.00"
+                                    placeholder="0.00"
+                                    required
+                                    value={warning_limit}
+                                    onChange={e => {
+                                        setWarningLimit(e.target.valueAsNumber)
+                                    }} />
+                            </InputGroup>
+
                         </Form.Group>
                     </Form>
                 </Modal.Body>
