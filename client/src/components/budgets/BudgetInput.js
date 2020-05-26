@@ -8,8 +8,8 @@ const BudgetInput = () => {
 
     const [show, setShow] = useState(false);
     const [budget_name, setBudgetName] = useState("");
-    const [warning_limit, setWarningLimit] = useState(0.00);
-    const [budget_amount, setBudgetAmount] = useState(0.00);
+    const [warning_limit, setWarningLimit] = useState(0);
+    const [budget_amount, setBudgetAmount] = useState(0);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);

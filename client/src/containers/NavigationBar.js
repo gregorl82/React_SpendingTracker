@@ -20,6 +20,9 @@ const NavigationBar = () => {
             <Link className="p-2" style={navStyle} to="/budgets">
                 <Nav>Budgets</Nav>
             </Link>
+            <Link className="p-2" style={navStyle} to="/transactions">
+                <Nav>Transactions</Nav>
+            </Link>
         </NavBar>
     )
 }
