@@ -1,12 +1,12 @@
-import React, { Fragment, useState } from 'react';
+import * as React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 
-const MerchantEdit = ({ merchant }) => {
+const MerchantEdit: React.FC<Merchant> = ({ merchant }) => {
 
-    const [show, setShow] = useState(false);
-    const [merchant_name, setMerchantName] = useState(merchant.merchant_name);
+    const [show, setShow] = React.useState<boolean>(false);
+    const [merchant_name, setMerchantName] = React.useState<string>(merchant.merchant_name);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -28,7 +28,7 @@ const MerchantEdit = ({ merchant }) => {
     }
 
     return (
-        <Fragment>
+        <React.Fragment>
 
             <Button variant="warning" onClick={handleShow}>Edit</Button>
 
@@ -52,7 +52,7 @@ const MerchantEdit = ({ merchant }) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                 </Button>
-                    <Button variant="primary" onClick={(e) => {
+                    <Button variant="primary" onClick={(e: MouseEvent<HTMLButtonElement>) => {
                         updateMerchant(e)
                     }
                     }>
@@ -60,7 +60,7 @@ const MerchantEdit = ({ merchant }) => {
                  </Button>
                 </Modal.Footer>
             </Modal>
-        </Fragment>
+        </React.Fragment>
     )
 }
 

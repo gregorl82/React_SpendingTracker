@@ -1,14 +1,18 @@
-import React, { Fragment } from 'react';
+import * as React from 'react';
 import Row from 'react-bootstrap/Row';
 import MerchantItem from './MerchantItem';
 
-const MerchantList = ({ merchants }) => {
+interface MerchantListProps {
+    merchants: Array<Merchant>
+}
+
+const MerchantList: React.FC<MerchantListProps> = ({ merchants }) => {
     return (
-        <Fragment>
+        <React.Fragment>
             {merchants.map((merchant) => {
                 return <Row className="mt-5" key={merchant.id}><MerchantItem merchant={merchant} /></Row>
             })}
-        </Fragment>
+        </React.Fragment>
     )
 }
 
