@@ -14,7 +14,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Jumbotron fluid>
+        <Jumbotron>
           <h2>Spending Tracker</h2>
         </Jumbotron>
         <NavigationBar />
