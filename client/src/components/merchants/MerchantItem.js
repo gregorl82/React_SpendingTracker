@@ -1,11 +1,11 @@
-import * as React from 'react';
+import React, { Fragment } from 'react';
 import MerchantEdit from './MerchantEdit';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
-const MerchantItem: React.FC<Merchant> = ({ merchant }) => {
+const MerchantItem = ({ merchant }) => {
 
-    const handleDelete = async (id: number) => {
+    const handleDelete = async (id) => {
         try {
             const response = await fetch(`http://localhost:5000/api/merchants/${id}`, {
                 method: "DELETE"
@@ -18,7 +18,7 @@ const MerchantItem: React.FC<Merchant> = ({ merchant }) => {
     }
 
     return (
-        <React.Fragment>
+        <Fragment>
             <Col lg={8}>{merchant.merchant_name}</Col>
             <Col><MerchantEdit merchant={merchant} /></Col>
             <Col><Button
@@ -26,7 +26,7 @@ const MerchantItem: React.FC<Merchant> = ({ merchant }) => {
                 onClick={() => {
                     handleDelete(merchant.id)
                 }}>Delete</Button></Col>
-        </React.Fragment>
+        </Fragment>
     )
 }
 

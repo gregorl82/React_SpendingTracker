@@ -1,13 +1,11 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-interface MerchantInputProps {}
+const MerchantInput = () => {
 
-const MerchantInput: React.FC<MerchantInputProps> = () => {
-
-    const [merchant_name, setMerchantName] = React.useState<string>("");
+    const [merchant_name, setMerchantName] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();

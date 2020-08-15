@@ -1,13 +1,11 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container'
 import MerchantInput from '../components/merchants/MerchantInput';
 import MerchantList from '../components/merchants/MerchantList';
 
-interface MerchantContainerProps {}
+const MerchantContainer = () => {
 
-const MerchantContainer: React.FC<MerchantContainerProps> = () => {
-
-    const [merchants, setMerchants] = React.useState<Merchant[]>([]);
+    const [merchants, setMerchants] = useState([]);
 
     const getMerchants = async() => {
         try {
@@ -20,7 +18,7 @@ const MerchantContainer: React.FC<MerchantContainerProps> = () => {
         }
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         getMerchants();
     }, [])
 
